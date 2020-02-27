@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: "app-register",
+  templateUrl: "./register.component.html",
+  styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit {
+  @Input() valuesFromHome: any;
+  model: any = {};
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  register() {
+    console.log(this.model);
   }
 
+  cancel() {
+    console.log("cancelled");
+  }
 }
