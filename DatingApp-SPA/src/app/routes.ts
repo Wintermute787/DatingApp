@@ -6,25 +6,31 @@ import { Routes } from "@angular/router";
 import { AuthGuard } from "./_guards/auth.guard";
 export const appRoutes: Routes = [
   {
-    path: "home",
+    path: "",
     component: HomeComponent
   },
   {
-    path: "members",
-    component: MemberListComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: "messages",
-    component: MessagesComponent
-  },
-  {
-    path: "lists",
-    component: ListsComponent
+    path: "",
+    runGuardsAndResolvers: "always",
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: "messages",
+        component: MessagesComponent
+      },
+      {
+        path: "lists",
+        component: ListsComponent
+      },
+      {
+        path: "members",
+        component: MemberListComponent
+      }
+    ]
   },
   {
     path: "**",
-    redirectTo: "home",
+    redirectTo: "",
     pathMatch: "full"
   }
 ];
