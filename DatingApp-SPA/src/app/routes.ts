@@ -5,6 +5,8 @@ import { MemberListComponent } from "./members/member-list/member-list.component
 import { HomeComponent } from "./home/home.component";
 import { Routes } from "@angular/router";
 import { AuthGuard } from "./_guards/auth.guard";
+import { MemberDetailResolver } from "./_resolvers/member-detail.resolver";
+import { MemberListResolver } from "./_resolvers/member-list.resolver";
 export const appRoutes: Routes = [
   {
     path: "",
@@ -25,11 +27,13 @@ export const appRoutes: Routes = [
       },
       {
         path: "members",
-        component: MemberListComponent
+        component: MemberListComponent,
+        resolve: { users: MemberListResolver }
       },
       {
         path: "members/:id",
-        component: MemberDetailComponent
+        component: MemberDetailComponent,
+        resolve: { user: MemberDetailResolver }
       }
     ]
   },
