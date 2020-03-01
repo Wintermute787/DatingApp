@@ -1,3 +1,4 @@
+import { MemberDetailComponent } from "./members/member-list/member-detail/member-detail.component";
 import { ListsComponent } from "./lists/lists.component";
 import { MessagesComponent } from "./messages/messages.component";
 import { MemberListComponent } from "./members/member-list/member-list.component";
@@ -25,6 +26,10 @@ export const appRoutes: Routes = [
       {
         path: "members",
         component: MemberListComponent
+      },
+      {
+        path: "members/:id",
+        component: MemberDetailComponent
       }
     ]
   },

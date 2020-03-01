@@ -1,3 +1,4 @@
+import { MemberDetailComponent } from "./members/member-list/member-detail/member-detail.component";
 import { appRoutes } from "./routes";
 import { ErrorInterceptorProvider } from "./_services/error.interceptor";
 import { AuthService } from "./_services/auth.service";
@@ -17,6 +18,7 @@ import { MessagesComponent } from "./messages/messages.component";
 import { RouterModule } from "@angular/router";
 import { MemberCardComponent } from "./members/member-list/member-card/member-card.component";
 import { JwtModule } from "@auth0/angular-jwt";
+import { TabsModule } from "ngx-bootstrap";
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -31,7 +33,8 @@ export function tokenGetter() {
     MemberListComponent,
     ListsComponent,
     MessagesComponent,
-    MemberCardComponent
+    MemberCardComponent,
+    MemberDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ export function tokenGetter() {
     FormsModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     JwtModule.forRoot({
       config: {
